@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  # Host App (Aplicação principal)
+  host:
+    build: ./apps/host
+    ports:
+      - "5000:80"
+    depends_on:
+      - auth
+      - customers
+    environment:
+      - NODE_ENV=production
+    networks:
+      - teddy-network
+
+  # Auth Microfrontend
+  auth:
+    build: ./apps/auth
+    ports:
+      - "5001:80"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - teddy-network
+
+  # Customers Microfrontend
+  customers:
+    build: ./apps/customers
+    ports:
+      - "5003:80"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - teddy-network
+
+networks:
+  teddy-network:
+    driver: bridge

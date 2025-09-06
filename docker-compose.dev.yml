@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  # Host App (Desenvolvimento)
+  host:
+    build: ./apps/host
+    ports:
+      - "5000:80"
+    volumes:
+      - ./apps/host:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    networks:
+      - teddy-network
+
+  # Auth Microfrontend (Desenvolvimento)
+  auth:
+    build: ./apps/auth
+    ports:
+      - "5001:80"
+    volumes:
+      - ./apps/auth:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    networks:
+      - teddy-network
+
+  # Customers Microfrontend (Desenvolvimento)
+  customers:
+    build: ./apps/customers
+    ports:
+      - "5003:80"
+    volumes:
+      - ./apps/customers:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    networks:
+      - teddy-network
+
+networks:
+  teddy-network:
+    driver: bridge
