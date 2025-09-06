@@ -1,5 +1,5 @@
 # Multi-stage build para o Auth App
-FROM node:18-alpine AS base
+FROM node:24.1-alpine AS base
 
 # Definir diretório de trabalho
 WORKDIR /app

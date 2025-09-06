@@ -28,7 +28,7 @@ services:
   customers:
     build: ./apps/customers
     ports:
-      - "5003:80"
+      - "5002:80"
     environment:
       - NODE_ENV=production
     networks:
