@@ -12,8 +12,8 @@ export default defineConfig({
       name: "host",
       filename: "remoteEntry.js",
       remotes: {
-        reactAppAuth: "http://localhost:5004/assets/remoteEntry.js",
-        reactAppCustomers: "http://localhost:5003/assets/remoteEntry.js",
+        reactAppAuth: "http://localhost:5001/assets/remoteEntry.js",
+        reactAppCustomers: "http://localhost:5002/assets/remoteEntry.js",
       },
       shared: ["react", "react-dom"],
     }),

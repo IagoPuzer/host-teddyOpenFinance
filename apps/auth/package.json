@@ -7,7 +7,7 @@
     "dev": "vite --port 5001 --strictPort",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview --port 5004 --strictPort"
+    "preview": "vite preview --port 5001 --strictPort"
   },
   "dependencies": {
     "@originjs/vite-plugin-federation": "^1.4.1",

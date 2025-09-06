@@ -11,9 +11,6 @@ export default defineConfig({
     federation({
       name: "customers",
       filename: "remoteEntry.js",
-      remotes: {
-        reactAppCustomers: "http://localhost:5002/assets/remoteEntry.js",
-      },
       exposes: {
         "./CustomersApp": "./src/components/customers.tsx",
       },
