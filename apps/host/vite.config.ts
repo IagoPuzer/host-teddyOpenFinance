@@ -3,31 +3,36 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import federation from "@originjs/vite-plugin-federation";
 
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-    federation({
-      name: "host",
-      filename: "remoteEntry.js",
-      remotes: {
-        reactAppAuth:
-          "https://teddy-open-finance-auth.vercel.app/assets/remoteEntry.js",
-        reactAppCustomers:
-          "https://teddy-open-finance-customers.vercel.app/assets/remoteEntry.js",
-      },
-      shared: ["react", "react-dom"],
-    }),
-  ],
-  server: {
-    port: 5000,
-    strictPort: true,
-  },
-  build: {
-    modulePreload: false,
-    target: "esnext",
-    minify: false,
-    cssCodeSplit: false,
-  },
+export default defineConfig(({ mode }) => {
+  const isDev = mode === "development";
+
+  return {
+    plugins: [
+      react(),
+      tailwindcss(),
+      federation({
+        name: "host",
+        filename: "remoteEntry.js",
+        remotes: {
+          reactAppAuth: isDev
+            ? "http://localhost:5001/assets/remoteEntry.js"
+            : "https://teddy-open-finance-auth.vercel.app/assets/remoteEntry.js",
+          reactAppCustomers: isDev
+            ? "http://localhost:5002/assets/remoteEntry.js"
+            : "https://teddy-open-finance-customers.vercel.app/assets/remoteEntry.js",
+        },
+        shared: ["react", "react-dom"],
+      }),
+    ],
+    server: {
+      port: 5000,
+      strictPort: true,
+    },
+    build: {
+      modulePreload: false,
+      target: "esnext",
+      minify: false,
+      cssCodeSplit: false,
+    },
+  };
 });
