@@ -5,7 +5,7 @@ import Customers from "./components/customers";
 function App() {
   return (
     <Routes>
-      <Route path="/customers" element={<Customers />} />
+      <Route path="/" element={<Customers />} />
     </Routes>
   );
 }
