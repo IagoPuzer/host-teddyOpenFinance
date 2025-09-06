@@ -17,7 +17,12 @@
     "deploy:host": "bun run build:host && echo 'Deploy host para produção'",
     "deploy:auth": "bun run build:auth && echo 'Deploy auth para produção'",
     "deploy:customers": "bun run build:customers && echo 'Deploy customers para produção'",
-    "deploy:all": "bun run build && echo 'Deploy todos os microfrontends para produção'"
+    "deploy:all": "bun run build && echo 'Deploy todos os microfrontends para produção'",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:dev": "docker-compose -f docker-compose.dev.yml up -d",
+    "docker:logs": "docker-compose logs -f"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
