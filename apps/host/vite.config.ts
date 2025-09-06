@@ -12,8 +12,10 @@ export default defineConfig({
       name: "host",
       filename: "remoteEntry.js",
       remotes: {
-        reactAppAuth: "http://localhost:5001/assets/remoteEntry.js",
-        reactAppCustomers: "http://localhost:5002/assets/remoteEntry.js",
+        reactAppAuth:
+          "https://teddy-open-finance-auth.vercel.app/assets/remoteEntry.js",
+        reactAppCustomers:
+          "https://teddy-open-finance-customers.vercel.app/assets/remoteEntry.js",
       },
       shared: ["react", "react-dom"],
     }),
