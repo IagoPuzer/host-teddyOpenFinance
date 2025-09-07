@@ -25,6 +25,7 @@ export default defineConfig(({ mode }) => {
           react: "^19.1.1",
           "react-dom": "^19.1.1",
           "react-router-dom": "^7.8.2",
+          "@tanstack/react-query": "^5.87.1",
         },
       }),
     ],
