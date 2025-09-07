@@ -24,6 +24,7 @@ export default defineConfig(({ mode }) => {
         shared: {
           react: "^19.1.1",
           "react-dom": "^19.1.1",
+          "react-router-dom": "^7.8.2",
         },
       }),
     ],
