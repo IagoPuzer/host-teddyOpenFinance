@@ -1,11 +1,11 @@
 /// <reference types="vite/client" />
 
-declare module "reactAppAuth/AuthApp" {
+declare module "reactAppAuth/AuthPage" {
   import { FC } from "react";
-  const AuthApp: FC<{
+  const AuthPage: FC<{
     onNavigate?: (path: string) => void;
   }>;
-  export default AuthApp;
+  export default AuthPage;
 }
 
 declare module "reactAppCustomers/CustomersApp" {
