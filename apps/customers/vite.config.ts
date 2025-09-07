@@ -18,6 +18,7 @@ export default defineConfig({
         react: "^19.1.1",
         "react-dom": "^19.1.1",
         "react-hook-form": "^7.62.0",
+        "react-router-dom": "^7.8.2",
       },
     }),
   ],
@@ -27,4 +28,5 @@ export default defineConfig({
     minify: false,
     cssCodeSplit: false,
   },
+  assetsInclude: ["**/*.svg"],
 });
