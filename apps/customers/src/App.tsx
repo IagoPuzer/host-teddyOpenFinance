@@ -1,15 +1,21 @@
 import "./App.css";
 import { Routes, Route } from "react-router";
 import Customers from "./components/customers";
+import Layout from "./components/layout";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Customers />} />
+      <Route
+        path="/"
+        element={
+          <Layout>
+            <Customers />
+          </Layout>
+        }
+      />
     </Routes>
   );
 }
 
-// Exportar o componente Customers como CustomersApp para o microfrontend
-export { default as CustomersApp } from "./components/customers";
 export default App;
