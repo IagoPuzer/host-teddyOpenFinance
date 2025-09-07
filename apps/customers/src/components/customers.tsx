@@ -1,3 +1,9 @@
+import Layout from "./layout";
+
 export default function Customers() {
-  return <h1>APLICAÇÃO CUSTOMERS</h1>;
+  return (
+    <Layout>
+      <h1>APLICAÇÃO CUSTOMERS</h1>
+    </Layout>
+  );
 }
