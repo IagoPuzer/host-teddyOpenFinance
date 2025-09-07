@@ -21,7 +21,10 @@ export default defineConfig(({ mode }) => {
             ? "http://localhost:5002/assets/remoteEntry.js"
             : "https://teddy-open-finance-customers.vercel.app/assets/remoteEntry.js",
         },
-        shared: ["react", "react-dom"],
+        shared: {
+          react: "^19.1.1",
+          "react-dom": "^19.1.1",
+        },
       }),
     ],
     server: {

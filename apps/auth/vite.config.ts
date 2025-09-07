@@ -12,9 +12,12 @@ export default defineConfig({
       name: "auth",
       filename: "remoteEntry.js",
       exposes: {
-        "./AuthApp": "./src/component/authApp.tsx",
+        "./AuthPage": "./src/pages/AuthPage.tsx",
       },
-      shared: ["react", "react-dom"],
+      shared: {
+        react: "^19.1.1",
+        "react-dom": "^19.1.1",
+      },
     }),
   ],
   build: {
