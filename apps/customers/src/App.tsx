@@ -1,12 +1,17 @@
 import "./App.css";
 import { Routes, Route } from "react-router";
 import Customers from "./components/customers";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Customers />} />
-    </Routes>
+    <QueryClientProvider client={queryClient}>
+      <Routes>
+        <Route path="/" element={<Customers />} />
+      </Routes>
+    </QueryClientProvider>
   );
 }
 

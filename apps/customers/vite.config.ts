@@ -19,6 +19,7 @@ export default defineConfig({
         "react-dom": "^19.1.1",
         "react-hook-form": "^7.62.0",
         "react-router-dom": "^7.8.2",
+        "@tanstack/react-query": "^5.87.1",
       },
     }),
   ],
