@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logoUrl from "/Logo-Teddy.svg?url";
 
 const Header: React.FC = () => {
   const location = useLocation();
@@ -22,7 +21,7 @@ const Header: React.FC = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/customers" className="flex items-center space-x-2">
-              <img src={logoUrl} alt="Logo" className="h-8 w-auto" />
+              <img src="/Logo-Teddy.svg" alt="Logo" className="h-8 w-auto" />
             </Link>
           </div>
 
