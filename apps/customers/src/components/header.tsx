@@ -20,7 +20,7 @@ const Header: React.FC = () => {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/customers" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2">
               <img src="/Logo-Teddy.svg" alt="Logo" className="h-8 w-auto" />
             </Link>
           </div>
