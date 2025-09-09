@@ -12,7 +12,7 @@ export default defineConfig({
       name: "customers",
       filename: "remoteEntry.js",
       exposes: {
-        "./CustomersApp": "./src/pages/customers.tsx",
+        "./Customers": "./src/pages/customers.tsx",
         "./SelectedCustomersPage": "./src/pages/selectedCustomers.tsx",
       },
       shared: {

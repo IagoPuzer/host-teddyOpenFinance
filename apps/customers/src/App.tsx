@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router";
 import Customers from "./pages/customers";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import SelectedCustomersPage from "./pages/selectedCustomers";
+import { Toaster } from "sonner";
 
 const queryClient = new QueryClient();
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/customers" element={<Customers />} />
         <Route path="/customers/selected" element={<SelectedCustomersPage />} />
       </Routes>
+      <Toaster position="top-right" richColors />
     </QueryClientProvider>
   );
 }
