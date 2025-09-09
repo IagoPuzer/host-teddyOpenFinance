@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useUserName } from "../hooks/useUserName";
+import { useSelectedCustomers } from "../hooks/useSelectedCustomers";
 
 const Header: React.FC = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const userName = useUserName();
+  const { clearSelected } = useSelectedCustomers();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -13,6 +15,15 @@ const Header: React.FC = () => {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  const handleLogout = () => {
+    // Limpar clientes selecionados
+    clearSelected();
+    // Limpar dados do usuário do localStorage
+    localStorage.removeItem("userName");
+    // Fechar menu mobile se estiver aberto
+    closeMobileMenu();
   };
 
   return (
@@ -51,6 +62,7 @@ const Header: React.FC = () => {
             </Link>
             <Link
               to="/"
+              onClick={handleLogout}
               className="text-sm font-medium text-black hover:text-orange-500 transition-colors"
             >
               Sair
@@ -129,7 +141,7 @@ const Header: React.FC = () => {
                 </Link>
                 <Link
                   to="/"
-                  onClick={closeMobileMenu}
+                  onClick={handleLogout}
                   className="text-sm font-medium text-black hover:text-orange-500 transition-colors"
                 >
                   Sair
