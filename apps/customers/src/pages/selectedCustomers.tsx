@@ -50,7 +50,7 @@ export default function SelectedCustomersPage() {
             </div>
             <button
               onClick={onClearAll}
-              className="w-full lg:w-auto bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200"
+              className="w-full lg:w-auto bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 cursor-pointer"
             >
               Limpar todos
             </button>
@@ -58,7 +58,7 @@ export default function SelectedCustomersPage() {
         </div>
 
         {/* Grid de clientes selecionados */}
-        <div className="grid grid-cols-1 lg:grd-cols-3 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {selectedCustomers.map((customer) => (
             <CustomerCard
               key={customer.id}

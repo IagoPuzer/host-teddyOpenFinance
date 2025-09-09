@@ -7,7 +7,9 @@ export const useUserName = () => {
     // Buscar o nome do usuário do localStorage
     const storedUserName = localStorage.getItem("userName");
     if (storedUserName) {
-      setUserName(storedUserName);
+      // Remover aspas se existirem
+      const cleanUserName = storedUserName.replace(/^"(.*)"$/, "$1");
+      setUserName(cleanUserName);
     }
   }, []);
 
