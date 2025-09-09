@@ -12,9 +12,19 @@ const api = axios.create({
 });
 
 // GET - Buscar todos os usuários
-export const getUsers = async (): Promise<User[]> => {
+export const getUsers = async (
+  page: number = 1
+): Promise<{
+  clients: User[];
+  totalPages: number;
+  currentPage: number;
+}> => {
   try {
-    const response = await api.get<User[]>("/users");
+    const response = await api.get<{
+      clients: User[];
+      totalPages: number;
+      currentPage: number;
+    }>(`/users?page=${page}`);
     return response.data;
   } catch (error) {
     console.error("Erro ao buscar usuários:", error);
