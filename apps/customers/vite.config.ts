@@ -12,7 +12,8 @@ export default defineConfig({
       name: "customers",
       filename: "remoteEntry.js",
       exposes: {
-        "./CustomersApp": "./src/page/customers.tsx",
+        "./CustomersApp": "./src/pages/customers.tsx",
+        "./SelectedCustomersPage": "./src/pages/selectedCustomers.tsx",
       },
       shared: {
         react: "^19.1.1",
