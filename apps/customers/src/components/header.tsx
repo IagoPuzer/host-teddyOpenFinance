@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useUserName } from "../hooks/useUserName";
 
 const Header: React.FC = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const userName = useUserName();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -58,14 +60,14 @@ const Header: React.FC = () => {
           {/* Saudação do usuário - Desktop */}
           <div className="hidden md:flex items-center">
             <span className="text-sm text-black font-semibold">
-              Olá, Usuário!
+              Olá, {userName || "Usuário"}!
             </span>
           </div>
 
           {/* Menu hambúrguer - Mobile */}
           <div className="sm:flex md:hidden items-center space-x-4">
             <span className="text-sm text-black font-semibold">
-              Olá, Usuário!
+              Olá, {userName || "Usuário"}!
             </span>
             <button
               onClick={toggleMobileMenu}
