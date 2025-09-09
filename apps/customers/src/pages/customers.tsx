@@ -5,6 +5,7 @@ import CreateClientModal from "../components/modals/CreateClientModal";
 import EditClientModal from "../components/modals/EditClientModal";
 import DeleteConfirmModal from "../components/modals/DeleteConfirmModal";
 import { useSelectedCustomers } from "../hooks/useSelectedCustomers";
+import { toast, Toaster } from "sonner";
 import {
   useUsers,
   useCreateUser,
@@ -48,6 +49,11 @@ export default function Customers() {
       onSuccess: () => {
         goToFirstPage();
         createModal.close();
+        toast.success("Cliente criado com sucesso!");
+      },
+      onError: (error) => {
+        toast.error("Erro ao criar cliente. Tente novamente.");
+        console.error("Erro ao criar cliente:", error);
       },
     });
   };
@@ -63,6 +69,11 @@ export default function Customers() {
         {
           onSuccess: () => {
             editModal.close();
+            toast.success("Cliente atualizado com sucesso!");
+          },
+          onError: (error) => {
+            toast.error("Erro ao atualizar cliente. Tente novamente.");
+            console.error("Erro ao atualizar cliente:", error);
           },
         }
       );
@@ -78,13 +89,23 @@ export default function Customers() {
       deleteUserMutation.mutate(deleteModal.customer.id, {
         onSuccess: () => {
           deleteModal.close();
+          toast.success("Cliente excluído com sucesso!");
+        },
+        onError: (error) => {
+          toast.error("Erro ao excluir cliente. Tente novamente.");
+          console.error("Erro ao excluir cliente:", error);
         },
       });
     }
   };
 
   const handleAdd = (customer: User) => {
-    selectedCustomers.toggleCustomer(customer);
+    const wasAdded = selectedCustomers.toggleCustomer(customer);
+    if (wasAdded) {
+      toast.success(`${customer.name} adicionado à seleção!`);
+    } else {
+      toast.info(`${customer.name} removido da seleção.`);
+    }
   };
 
   if (isLoading) {
@@ -184,6 +205,8 @@ export default function Customers() {
         customerName={deleteModal.customer?.name || ""}
         isLoading={deleteUserMutation.isPending}
       />
+
+      <Toaster position="top-right" richColors />
     </Layout>
   );
 }

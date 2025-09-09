@@ -36,14 +36,17 @@ export const useSelectedCustomers = () => {
   }, []);
 
   const toggleCustomer = useCallback((customer: User) => {
+    let wasAdded = false;
     setSelectedCustomers((prev) => {
       const isSelected = prev.some((c) => c.id === customer.id);
       if (isSelected) {
         return prev.filter((c) => c.id !== customer.id);
       } else {
+        wasAdded = true;
         return [...prev, customer];
       }
     });
+    return wasAdded;
   }, []);
 
   const clearSelected = useCallback(() => {
