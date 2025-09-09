@@ -2,7 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AuthPage from "reactAppAuth/AuthPage";
-import CustomersApp from "reactAppCustomers/CustomersApp";
+import Customers from "reactAppCustomers/Customers";
 import SelectedCustomersPage from "reactAppCustomers/SelectedCustomersPage";
 
 const queryClient = new QueryClient();
@@ -12,7 +12,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Routes>
         <Route path="/" element={<AuthPage />} />
-        <Route path="/customers" element={<CustomersApp />} />
+        <Route path="/customers" element={<Customers />} />
         <Route path="/customers/selected" element={<SelectedCustomersPage />} />
       </Routes>
     </QueryClientProvider>

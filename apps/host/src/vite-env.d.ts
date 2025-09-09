@@ -8,12 +8,12 @@ declare module "reactAppAuth/AuthPage" {
   export default AuthPage;
 }
 
-declare module "reactAppCustomers/CustomersApp" {
+declare module "reactAppCustomers/Customers" {
   import { FC } from "react";
-  const CustomersApp: FC<{
+  const Customers: FC<{
     onNavigate?: (path: string) => void;
   }>;
-  export default CustomersApp;
+  export default Customers;
 }
 
 declare module "reactAppCustomers/SelectedCustomersPage" {
