@@ -1,4 +1,6 @@
 import type { User } from "../types/user";
+import { MdModeEdit } from "react-icons/md";
+import { FaTrashAlt, FaCheck, FaPlus } from "react-icons/fa";
 
 interface CustomerCardProps {
   customer: User;
@@ -30,14 +32,6 @@ export default function CustomerCard({
         isSelected ? "border-orange-500 bg-orange-50" : "border-gray-200"
       }`}
     >
-      {isSelected && (
-        <div className="flex justify-end mb-2">
-          <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded-full">
-            Selecionado
-          </span>
-        </div>
-      )}
-
       <div className="text-lg font-bold text-gray-800 mb-3">
         {customer.name}
       </div>
@@ -57,7 +51,7 @@ export default function CustomerCard({
           onClick={() => onAdd?.(customer)}
           title={isSelected ? "Remover da seleção" : "Adicionar à seleção"}
         >
-          {isSelected ? "✓" : "+"}
+          {isSelected ? <FaCheck /> : <FaPlus />}
         </button>
         {!hideActions && (
           <>
@@ -66,14 +60,14 @@ export default function CustomerCard({
               onClick={() => onEdit?.(customer)}
               title="Editar"
             >
-              ✏️
+              <MdModeEdit />
             </button>
             <button
               className="w-8 h-8 border-none rounded-full cursor-pointer text-sm flex items-center justify-center transition-all duration-200 bg-red-50 text-red-600 hover:bg-red-100"
               onClick={() => onDelete?.(customer)}
               title="Excluir"
             >
-              🗑️
+              <FaTrashAlt />
             </button>
           </>
         )}
