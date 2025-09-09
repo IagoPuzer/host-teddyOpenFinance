@@ -144,7 +144,6 @@ teddy-open-finance/
 
 - **Module Federation** - Integração de microfrontends
 - **React Router** - Roteamento client-side
-- **TanStack Query** - Gerenciamento de estado e cache
 - **Axios** - Cliente HTTP para APIs
 
 ### Desenvolvimento
