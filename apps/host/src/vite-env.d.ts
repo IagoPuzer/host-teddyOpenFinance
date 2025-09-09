@@ -15,3 +15,11 @@ declare module "reactAppCustomers/CustomersApp" {
   }>;
   export default CustomersApp;
 }
+
+declare module "reactAppCustomers/SelectedCustomersPage" {
+  import { FC } from "react";
+  const SelectedCustomersPage: FC<{
+    onNavigate?: (path: string) => void;
+  }>;
+  export default SelectedCustomersPage;
+}
